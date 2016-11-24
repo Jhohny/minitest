@@ -1,11 +1,13 @@
 class BrandsController < ApplicationController
-
+  before_action :authenticate_user!
+  
   def index
-  	@brands = Brand.all
+  	@brands = current_user.brands
   end
 
+  #User can create a brand, form build
   def new
-  	@brand = Brand.new
+    @brand = current_user.brands.build
   end
 
   def show
@@ -16,8 +18,9 @@ class BrandsController < ApplicationController
   	@brand = Brand.find(params[:id])
   end
 
+  #User can create a brand, actual brand creation
   def create
-  	@brand = Brand.new(brand_params)
+  	@brand = current_user.brands.build(brand_params)
   	if @brand.valid?
   		@brand.save
   		redirect_to brands_url

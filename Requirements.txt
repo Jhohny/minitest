@@ -7,13 +7,13 @@ Crear una aplicación web con las siguientes características:
 
 Marcas
 
-- El usuario puede crear una marca. 
+- 😁El usuario puede crear una marca. 
 	😁Las marcas solo tienen nombre. 
-		Mostrar un error si el usuario no ha puesto ningún nombre.
+		😁Mostrar un error si el usuario no ha puesto ningún nombre.
 
-- El usuario puede ver una lista con las marcas existentes.
-- El usuario puede editar una marca.
-- El usuario puede borrar una marca. Que se muestre una alerta preguntando a el usuario si está seguro de que quiere borrar la marca antes de hacerlo.
+- 😁El usuario puede ver una lista con las marcas existentes.
+- 😁El usuario puede editar una marca.
+- 😁El usuario puede borrar una marca. Que se muestre una alerta preguntando a el usuario si está seguro de que quiere borrar la marca antes de hacerlo.
 
 
 
