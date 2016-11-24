@@ -1,0 +1,7 @@
+<h1>Add new Brand</h1>
+
+<%= form_for @brand, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+<%= render 'shared/error_messages' %>
+  <%= f.text_field :name %>
+  <%= f.submit "Create" %>
+<% end %>
