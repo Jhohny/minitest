@@ -2,51 +2,59 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   
   def index
-  	#@brands = current_user.brands
+  	@products = current_user.products
+    @total_value = @products.sum(:price)
   end
 
   def new
-    #@brand = current_user.brands.build
+    if current_user.brands.exists?
+      @product = current_user.products.build
+      @user_brands = current_user.brands
+    else
+      flash[:alert] = "Please create at least a Brand first."
+      redirect_to brands_path 
+    end
   end
 
   def show
-  	#@brand = Brand.find(params[:id])
   end
 
   def edit
-  	#@brand = Brand.find(params[:id])
+  	@product = current_user.products.find(params[:id])
+    @current_brand = @product.brand
+    @user_brands = current_user.brands
   end
 
-  #User can create a brand, actual brand creation
   def create
-  	#@brand = current_user.brands.build(brand_params)
-  	#if @brand.valid?
-  	#	@brand.save
-  	#	redirect_to brands_url
-  	#else
-  	#   render :new
-  	#end
+  	@product = current_user.products.build(product_params)
+  	if @product.valid?
+  		@product.save
+  		redirect_to products_url
+  	else
+  	   render :new
+  	end
   end
 
   def update
-  	#@brand = Brand.find(params[:id])
-  	#if @brand.update(brand_params) 
-  	#	redirect_to brands_url
-  	#else 
-  	#	render :edit
-  	#end
+    @user_brands = current_user.brands
+    @product = current_user.products.find(params[:id])
+      if @product.update(product_params) 
+        redirect_to products_url
+      else
+        render :edit
+    end
   end
 
   def destroy
-  	#@brand = Brand.find(params[:id])
-  	#@brand.destroy
-  	#redirect_to brands_url
+  	@product = current_user.products.find(params[:id])
+  	@product.destroy
+  	redirect_to products_url
   end
 
   private
 
-  def brand_params
-    #params.require(:brand).permit(:name)
+  def product_params
+    params.require(:product).permit(:name, :brand_id, :description, :price)
   end
 
 end

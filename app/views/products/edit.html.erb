@@ -1,15 +1,14 @@
-<h1>Products#new</h1>
+<h1>Edit Product</h1>
 
-<%= form_for @product, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
+<%= form_for(@product) do |f| %>
 <%= render 'shared/error_messages_product' %>
-
   <div class="field">
-	<%= f.label :name %>
-	<%= f.text_field :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
   	<%= f.label :brand %>
-    <%= f.collection_select(:brand_id, current_user.brands.all, :id, :name) %>
+    <%= f.collection_select(:brand_id, current_user.brands.all, :id, :name, :selected => @product.brand.id) %>
   </div>
    <div class="field">
     <%= f.label :description %>
@@ -20,5 +19,10 @@
     <%= f.number_field :price %>
   </div>
 
-  <%= f.submit "Create" %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>
+
+<%= @product.name%>
