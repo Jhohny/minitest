@@ -11,7 +11,7 @@ class ProductsController < ApplicationController
       @product = current_user.products.build
       @user_brands = current_user.brands
     else
-      flash[:alert] = "Please create at least a Brand first."
+      flash[:alert  ] = "Please create at least a Brand first."
       redirect_to brands_path 
     end
   end
@@ -42,7 +42,7 @@ class ProductsController < ApplicationController
         redirect_to products_url
       else
         render :edit
-    end
+      end
   end
 
   def destroy
