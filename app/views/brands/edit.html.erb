@@ -1,14 +1,21 @@
-<h1>Edit Brand</h1>
+<div class="row">
+	<div class="col-md-12 text-center">
+		<h1>Edit Brand</h1>
 
-<%= form_for(@brand) do |f| %>
+		<%= form_for(@brand) do |f| %>
+		<%= render "shared/error_messages_brand" %>
 
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-  </div>
+		  <div class="form-signin well center-block text-center">
+		    <%= f.label :name, class: "sr-only" %>
+		    <%= f.text_field :name, class: "form-control text-center"%>
+		  </div>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+		  <div class="actions">
+		   <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+				<span class="glyphicon glyphicon-refresh"></span> Update
+			<% end %> 
+		  </div>
+		<% end %>
+	</div>
+</div>

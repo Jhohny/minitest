@@ -2,11 +2,11 @@
   <div id="error_explanation">
     <div class="alert alert-danger">
       The form contains <%= pluralize(@product.errors.count, "error") %>.
-    </div>
-    <ul>
-    <% @product.errors.full_messages.each do |msg| %>
+      <ul class="text-left">
+       <% @product.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
-    <% end %>
-    </ul>
+      <% end %>
+    </div>
+ 
   </div>
 <% end %>

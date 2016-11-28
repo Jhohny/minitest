@@ -1,7 +1,17 @@
-<h1>Add new Brand</h1>
-
-<%= form_for @brand, url: {action: "create"}, html: {class: "nifty_form"} do |f| %>
-<%= render 'shared/error_messages_brand' %>
-  <%= f.text_field :name %>
-  <%= f.submit "Create" %>
-<% end %>
+<div class="row">
+	<div class="col-md-12 text-center">
+		<h1 class="bg-success custom-table-width" >Add new Brand</h1>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+		<%= form_for @brand, url: {action: "create"}, html: {class: "form-signin well center-block text-center"} do |f| %>
+		<%= render 'shared/error_messages_brand' %>
+		<%= f.text_field :name, placeholder: "Brand name", class: "form-control text-center",
+						 autofocus: 'autofocus' %>
+		    <%= button_tag(type: "submit", class: "btn btn-success") do %>
+				<span class="glyphicon glyphicon-plus"></span> Create Brand
+			<% end %> 
+		<% end %>
+    </div>
+</div>

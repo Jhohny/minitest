@@ -1,33 +1,12 @@
-<h1>All Products Created</h1>
-
-<% if @products.exists? %>
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Brand</th>
-      <th>Description</th>
-      <th>Price</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name %></td>
-        <td><%= product.brand.name %></td>
-        <td><%= product.description %></td>
-        <td><%= product.price %></td>
-        <td><%= link_to 'Edit', edit_product_path(product) %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1 class="bg-success custom-table-width-p">All Products</h1>
+    <% if @products.exists? %>
+      <%= render "layouts/products" %>
+    <% else %>
+      <p class="lead text-muted">You have no Products added.</p>
     <% end %>
-  </tbody>
-</table>
-<br>
-<% else %>
-<h3>You have no Products added.</h3>
-<% end %>
-<h2>Total Value: <%= @total_value %></h2>
-
-<%= link_to 'Add New Product', new_product_path %>
+    <%= link_to '<span class="glyphicon glyphicon-plus"></span> Add New Product'.html_safe, new_product_path, 
+                  class: "btn btn-success"  %>
+  </div>
+</div>

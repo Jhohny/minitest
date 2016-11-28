@@ -1,28 +1,47 @@
-<h1>Edit Product</h1>
-
-<%= form_for(@product) do |f| %>
-<%= render 'shared/error_messages_product' %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<div class="row">
+  <div class="col-md-12 text-center">
+    <h1 class="bg-success custom-table-width-p">Edit Product</h1>
   </div>
-  <div class="field">
-  	<%= f.label :brand %>
-    <%= f.collection_select(:brand_id, current_user.brands.all, :id, :name, :selected => @product.brand.id) %>
+</div>
+<!--test new form-->
+<div class="row">
+  <div class="col-md-12">
+    <%= form_for @product, 
+        html: {class: "form-signin custom-table-width-p well center-block text-center"} do |f| %>
+    <%= render 'shared/error_messages_product' %>                   
+    <div class="form-group row">
+      <%= f.label :name, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+      <%= f.text_field :name, class: 'form-control', autofocus: 'autofocus' %>
+      </div>
+    </div>
+    <div class="form-group row">         
+      <%= f.label :brand, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+      <%= f.collection_select(:brand_id, current_user.brands.all, :id, :name, {}, {class: "form-control"}) %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :description, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+        <%= f.text_area :description, class: 'form-control' %></td>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :price, class: 'col-sm-2 col-form-label' %>
+      <div class="col-sm-10">
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <%= f.number_field :price, class: 'form-control', placeholder: "Amount" %>
+              <div class="input-group-addon">.00</div>
+            </div>
+          </div>
+      </div>
+    </div>
+     <%= button_tag(type: "submit", class: "btn btn-warning") do %>
+      <span class="glyphicon glyphicon-refresh"></span> Update Product
+    <% end %>  
+    <% end %> 
   </div>
-   <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
-  </div>
-   <div class="field">
-    <%= f.label :price %>
-    <%= f.number_field :price %>
-  </div>
-
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-<%= @product.name%>
+</div>

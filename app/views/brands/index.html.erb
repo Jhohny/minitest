@@ -1,28 +1,21 @@
-<h1>All Brands Created</h1>
-
-<% if @brands.exists? %>
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      <% @brands.each do |brand| %>
-        <tr>
-          <td><%= brand.name %></td>
-          <td><%= link_to 'Edit', edit_brand_path(brand) %></td>
-          <td><%= link_to 'Destroy', brand, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  <% else %>
-    <h3>You have no Brands added.</h3>
-  <% end %>
-
-<br>
-
-<%= link_to 'Add New Brand', new_brand_path %>
+<div class= "row">
+    <div class= "col-md-12 text-center">
+      <h1 class="bg-success custom-table-width">All Brands Created</h1>
+    </div>
+</div>
+    <% if @brands.exists? %>
+      <%= render 'layouts/brands' %>
+    <% else %>
+<div class="row">
+      <div class="col-md-12 text-center">
+        <p class="lead text-muted">You have no Brands added.</p>
+      </div>
+    <% end %>
+</div>
+<div class="row">
+    <br>
+    <div class="col-md-12 text-center">
+      <%= link_to '<span class="glyphicon glyphicon-plus"></span> Add New Brand'.html_safe, new_brand_path, 
+                  class: "btn btn-success" %>
+    </div>
+</div>
