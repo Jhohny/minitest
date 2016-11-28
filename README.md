@@ -1,9 +1,8 @@
 # README
 
 This is a minitest application for 
-[*Michelada.io:
-Minitest*](http://www.michelada.io/)
-by *Jhonathan Amezcua*.
+[*Michelada.io*](http://www.michelada.io/)
+Minitest by *Jhonathan Amezcua*.
 
 ## Getting started
 
