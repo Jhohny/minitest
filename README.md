@@ -2,7 +2,7 @@
 
 This is a minitest application for 
 [*Michelada.io*](http://www.michelada.io/)
-Minitest by *Jhonathan Amezcua*.
+by *Jhonathan Amezcua*.
 
 ## Getting started
 
