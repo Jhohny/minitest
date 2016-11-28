@@ -3,7 +3,7 @@
 This is a minitest application for 
 [*Michelada.io:
 Minitest*](http://www.michelada.io/)
-by [Jhonathan Amezcua](Jhonathan.amezcua@gmail.com).
+by *Jhonathan Amezcua*.
 
 ## Getting started
 
